@@ -1,10 +1,11 @@
 import "./BackgroundChanger.css";
 
 
-export default function BackgroundChanger({onColorChange}) {
+export default function BackgroundChanger({onColorChange, onFontColorChange}) {
 
-    const handleClick = () => {
-        onColorChange()
+    const handleClick = (color, fontColor) => {
+        onColorChange(color);
+        onFontColorChange(fontColor);
     }
     const buttons = [{
         label: "Red",
@@ -39,7 +40,9 @@ export default function BackgroundChanger({onColorChange}) {
     return(
         <div className="buttons-holder">
             {buttons.map((button) => {
-                return(<Button label={button.label} backgroundColor={button.backgroundColor} color={button.color} onColorChange={onColorChange}/>)                
+                return(<Button label={button.label} backgroundColor={button.backgroundColor} color={button.color} onColorChange={() => {
+                    handleClick(button.backgroundColor, button.color);
+                }}/>)                
             })}
         </div>
     )

@@ -1,59 +1,26 @@
 import { useState } from 'react'
 import './App.css'
-import BackgroundChanger from './components/BackgroundChanger'
+import BackgroundChanger from './components-bgChanger/BackgroundChanger'
 import { useCallback } from 'react';
+import Heading from './components-bgChanger/Heading';
 
 function App() {
   const [bgColor, setBgColor] = useState('cadetblue');
+  const [fontColor, setFontColor] = useState('white');
+
+  const handleFontColorChange = useCallback((color) => {
+    setFontColor(color);
+  }, [fontColor]);
 
   const handleColorChange = useCallback((color) => {
     setBgColor(color);
   }, [bgColor]);
 
-  const buttons = [{
-      label: "Red",
-      backgroundColor: "Red",
-      color: "White"
-  }, {
-      label: "Green",
-      backgroundColor: "Green",
-      color: "White"
-  }, {
-      label: "Yellow",
-      backgroundColor: "Yellow",
-      color: "Black"
-  }, {
-      label: "Black",
-      backgroundColor: "Black",
-      color: "White"
-  }, {
-      label: "Purple",
-      backgroundColor: "Purple",
-      color: "White"
-  }, {
-      label: "Blue",
-      backgroundColor: "Blue",
-      color: "white"
-  }, {
-      label: "Default",
-      backgroundColor: "Beige",
-      color: "Black"
-  }]
-
   return (
     <div className="main-div" style={{backgroundColor: bgColor}}>
-      {buttons.map((button) => {
-        return(<Button label={button.label} backgroundColor={button.backgroundColor} color={button.color} onColorChange={() => {
-          handleColorChange(button.backgroundColor);
-        }}/>)                
-      })}
+      <Heading fontColor={fontColor}/>
+      <BackgroundChanger onColorChange={handleColorChange} onFontColorChange={handleFontColorChange}/>
     </div>
-  )
-}
-
-function Button({label, backgroundColor, color, onColorChange}) {
-  return(
-      <button className="btn" style={{backgroundColor: backgroundColor, color: color}} onClick={onColorChange}>{label}</button>
   )
 }
 
