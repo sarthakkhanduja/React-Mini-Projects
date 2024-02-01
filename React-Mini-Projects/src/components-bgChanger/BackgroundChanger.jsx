@@ -8,29 +8,29 @@ export default function BackgroundChanger({onColorChange, onFontColorChange}) {
         onFontColorChange(fontColor);
     }
     const buttons = [{
+        label: "Purple",
+        backgroundColor: "#E8D4DC",
+        color: "Black"
+    }, {
         label: "Red",
-        backgroundColor: "Red",
+        backgroundColor: "#FF6961",
         color: "White"
     }, {
         label: "Green",
-        backgroundColor: "Green",
+        backgroundColor: "#77DD77",
         color: "White"
     }, {
         label: "Yellow",
-        backgroundColor: "Yellow",
+        backgroundColor: "#FDFD96",
         color: "Black"
     }, {
         label: "Black",
-        backgroundColor: "Black",
-        color: "White"
-    }, {
-        label: "Purple",
-        backgroundColor: "Purple",
+        backgroundColor: "#1D1C1A",
         color: "White"
     }, {
         label: "Blue",
-        backgroundColor: "Blue",
-        color: "white"
+        backgroundColor: "#A7C7E7",
+        color: "Black"
     }, {
         label: "Default",
         backgroundColor: "Beige",
