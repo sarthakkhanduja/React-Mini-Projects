@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import './App.css'
 import BackgroundChanger from './components/BackgroundChanger'
+import { useCallback } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [bgColor, setBgColor] = useState('cadetblue');
+
+  const handleColorChange = useCallback((color) => {
+    setBgColor(color);
+  }, [bgColor]);
 
   return (
-    <div className="main-div">
-      <BackgroundChanger />
+    <div className="main-div" style={{backgroundColor: bgColor}}>
+      <BackgroundChanger onColorChange = {handleColorChange}/>
     </div>
   )
 }

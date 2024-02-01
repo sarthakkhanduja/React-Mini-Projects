@@ -1,16 +1,52 @@
 import "./BackgroundChanger.css";
 
 
-export default function BackgroundChanger() {
+export default function BackgroundChanger({onColorChange}) {
+
+    const handleClick = () => {
+        onColorChange()
+    }
+    const buttons = [{
+        label: "Red",
+        backgroundColor: "Red",
+        color: "White"
+    }, {
+        label: "Green",
+        backgroundColor: "Green",
+        color: "White"
+    }, {
+        label: "Yellow",
+        backgroundColor: "Yellow",
+        color: "Black"
+    }, {
+        label: "Black",
+        backgroundColor: "Black",
+        color: "White"
+    }, {
+        label: "Purple",
+        backgroundColor: "Purple",
+        color: "White"
+    }, {
+        label: "Blue",
+        backgroundColor: "Blue",
+        color: "white"
+    }, {
+        label: "Default",
+        backgroundColor: "Beige",
+        color: "Black"
+    }]
+
     return(
         <div className="buttons-holder">
-            <button className="btn">Red</button>
-            <button className="btn">Yellow</button>
-            <button className="btn">Black</button>
-            <button className="btn">Purple</button>
-            <button className="btn">Green</button>
-            <button className="btn">Blue</button>
-            <button className="btn">Default</button>
+            {buttons.map((button) => {
+                return(<Button label={button.label} backgroundColor={button.backgroundColor} color={button.color} onColorChange={onColorChange}/>)                
+            })}
         </div>
+    )
+}
+
+function Button({label, backgroundColor, color, onColorChange}) {
+    return(
+        <button className="btn" style={{backgroundColor: backgroundColor, color: color}} onClick={onColorChange}>{label}</button>
     )
 }
