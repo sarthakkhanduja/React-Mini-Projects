@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+.main-div {
+    min-height: 100vh; 
+    background-color: cadetblue;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
