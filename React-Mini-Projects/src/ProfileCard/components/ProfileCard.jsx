@@ -16,45 +16,56 @@ export function ProfileCard() {
     return(
         <div className="profile-div">
             <ProfilePicture profilePicture={profile.profilePicture}/>
-            {/* <Name />
-            <Location />
+            <NameAndAge name={profile.name} age={profile.age} />
+            <Location location={profile.location} />
             <div className="profile-numbers">
-                <Tile />
-                <Tile />
-                <Tile />.../assets/profilePicture.jpg
-            </div> */}
+                <Tile num={profile.profileStats.followers} label="Followers"/>
+                <Tile num={profile.profileStats.likes} label="Likes"/>
+                <Tile num={profile.profileStats.photos} label="Photos"/>
+            </div>
         </div>
     )
 }
 
 function ProfilePicture({profilePicture}) {
     return(
+    <div className="profile-picture-div">
         <img className="profile-picture" src={profilePicture} alt="Profile Picture" />
+    </div>
     )
 }
 
 function NameAndAge({name, age}) {
     return(
         <div className="nameAndAge">
-            <h3 className="name">{name}</h3>
-            <h3 className="age">{age}</h3>
+            <p className="name">{name}</p>
+            <p className="age">{age}</p>
         </div>
     )
 }
 
 function Location({location}) {
     return(
-        <h6 className="location">{location}</h6>
+    <div className="location-div">
+        <p className="location">{location}</p>
+    </div>
     )
 }
 
-function Tile({num}) {
-    function calcNum({num}) {
-
-    }
+function Tile({num, label}) {
+    // function calcNum({num}) {
+    //     if(num < 1000) {
+    //         return num.toString();
+    //     }
+    //     else {
+    //         return (num/100).toString() + "K";
+    //     }
+    // }
     return(
         <div className="tile-num">
-            
+            {/* <h4 className="number">{calcNum(num)}</h4> */}
+            <p className="number">{num}</p>
+            <p>{label}</p>
         </div>
     )
 }

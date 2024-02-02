@@ -3,3 +3,35 @@
     height: 100px;
     border-radius: 50%;
 }
+
+.profile-div {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 400px;
+}
+
+.nameAndAge {
+    display: flex;
+    flex-direction: row;
+    background-color: bisque;
+}
+
+.profile-numbers {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-picture-div {
+    background-color: aqua;
+}
+
+.location-div {
+    background-color:aquamarine;
+}
+
+.tile-num {
+    background-color: brown;
+    justify-content: space-between;
+}
