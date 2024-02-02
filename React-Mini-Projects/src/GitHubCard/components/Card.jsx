@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Card.css"
 
 export function Card() {
 
@@ -19,31 +20,43 @@ export function Card() {
     }
     
     useEffect(() => {
-        const username = "sarthakkhanduja"
+        // const username = "sarthakkhanduja"
+        const username = "torvalds"
         fetchGithubData(username);
     }, [])
 
     return(
         <div className="card-div">
-            <ProfilePicture profilePicture={data.avatar_url} />
-            <Member login={data.login} created={data.created_at} />
-            <Tile data={data.public_repo} label="Repositories" />
+            <ProfilePicture login={data.login} profilePicture={data.avatar_url} />
+            <div className="right-half">
+                <Member login={data.login} created={data.created_at} />
+                <div className="profile-numbers">
+                    <Tile data={data.public_repos} label="Repositories" />
+                    <Tile data={data.public_repos} label="Repositories" />
+                    <Tile data={data.public_repos} label="Repositories" />
+                </div>
+            </div>
+            
         </div>
     )
 }
 
-function ProfilePicture({profilePicture}) {
+function ProfilePicture({login, profilePicture}) {
+    const profileUrl = `https://github.com/${login}`;
+    console.log(profileUrl);
     return(
-    <div className="profile-picture-div">
-        <img className="profile-picture" src={profilePicture} alt="Profile Picture" />
-    </div>
+        <div className="profile-picture-div">
+            <img className="profile-picture" src={profilePicture} alt="Profile Picture" />
+            {/* <a className="login" href={profileUrl} /> */}
+            <p className="login">{login}</p>
+        </div>
     )
 }
 
-function Member({login, created}) {
+function Member({name, created}) {
     return(
         <div className="member-div">
-            <p className="username">{login}</p>
+            <p className="name">{name}</p>
             <p className="memberSince">{created}</p>
         </div>
     )
@@ -51,7 +64,7 @@ function Member({login, created}) {
 
 function Tile({data, label}) {
     return(
-        <div className="profile-numbers">
+        <div className="tile">
             <p className="repo">{data}</p>
             <p className="label">{label}</p>
         </div>

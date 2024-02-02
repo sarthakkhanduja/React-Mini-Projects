@@ -1,0 +1,43 @@
+.profile-picture {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.profile-picture-div {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-numbers {
+    display: flex;
+    flex-direction: row;
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile p {
+    margin: 0;
+}
+
+.card-div {
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.right-half {
+    background-color: aquamarine;
+    margin: 10px;
+}

@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+.main-div {
+    min-height: 100vh; 
+    background-color: cadetblue;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
