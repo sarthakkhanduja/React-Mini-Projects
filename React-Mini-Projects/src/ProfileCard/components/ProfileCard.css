@@ -5,33 +5,98 @@
 }
 
 .profile-div {
-    border: 2px solid black;
+    border: 1px solid whitesmoke;
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    width: 400px;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    background-color: white;
+    justify-content: flex-end;
 }
 
 .nameAndAge {
     display: flex;
     flex-direction: row;
-    background-color: bisque;
+    justify-content: center;
+}
+
+.label {
+    font-size: 14px;
+}
+
+.name{
+    padding-right: 10px;
+}
+
+.age{
+    color: #ABABAB;
+}
+
+.location {
+    color: #ABABAB;
 }
 
 .profile-numbers {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    border-top: 1px solid #ABABAB;
 }
 
 .profile-picture-div {
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
 }
 
 .location-div {
-    background-color:aquamarine;
+    display: flex;
+    justify-content: center;
 }
 
 .tile-num {
-    background-color: brown;
     justify-content: space-between;
+    display: flex;
+    margin: 10px;
+    width: 100px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile-num p {
+    margin: 0;
+}
+
+.location-div p {
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.nameAndAge p {
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.cover-photo-div {
+    width: 100%;
+    height: 90px;
+    position: absolute;
+    top:0;
+    z-index: -1;
+}
+
+.cover-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+p{
+    font-family: monospace;
+    font-size: 16px;
 }

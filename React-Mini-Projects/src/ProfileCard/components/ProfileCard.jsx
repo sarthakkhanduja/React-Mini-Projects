@@ -1,8 +1,10 @@
 import profilePicture from "../assets/profilePicture.jpg"
+import coverPhoto from "../assets/cover-2.jpg";
 import "./ProfileCard.css"
 
 export function ProfileCard() {
     const profile = {
+        coverPicture: coverPhoto,
         profilePicture: profilePicture,
         name: "Sarthak Khanduja",
         age: 25,
@@ -13,8 +15,10 @@ export function ProfileCard() {
             photos: 56
         }
     }
+
     return(
         <div className="profile-div">
+            <CoverBackground image={profile.coverPicture} />
             <ProfilePicture profilePicture={profile.profilePicture}/>
             <NameAndAge name={profile.name} age={profile.age} />
             <Location location={profile.location} />
@@ -38,7 +42,9 @@ function ProfilePicture({profilePicture}) {
 function NameAndAge({name, age}) {
     return(
         <div className="nameAndAge">
-            <p className="name">{name}</p>
+            <b>
+                <p className="name">{name}</p>
+            </b>
             <p className="age">{age}</p>
         </div>
     )
@@ -53,19 +59,28 @@ function Location({location}) {
 }
 
 function Tile({num, label}) {
-    // function calcNum({num}) {
-    //     if(num < 1000) {
-    //         return num.toString();
-    //     }
-    //     else {
-    //         return (num/100).toString() + "K";
-    //     }
-    // }
+    function calcNum(num) {
+        if(num < 1000) {
+            return num.toString();
+        }
+        else {
+            return ((num/1000).toFixed(1)).toString() + "K";
+        }
+    }
     return(
         <div className="tile-num">
-            {/* <h4 className="number">{calcNum(num)}</h4> */}
-            <p className="number">{num}</p>
-            <p>{label}</p>
+            <b>
+                <p className="num">{calcNum(num)}</p>
+            </b>
+            <p className="label">{label}</p>
+        </div>
+    )
+}
+
+function CoverBackground({image}) {
+    return(
+        <div className="cover-photo-div">
+            <img className="cover-picture" src={image} alt="Cover Picture" />
         </div>
     )
 }
