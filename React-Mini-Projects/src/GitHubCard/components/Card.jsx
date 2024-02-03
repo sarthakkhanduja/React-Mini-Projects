@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Card.css"
+import coverPhoto from "../assets/github-cover.png"
 
 export function Card() {
 
@@ -23,17 +24,22 @@ export function Card() {
         // const username = "sarthakkhanduja"
         const username = "torvalds"
         fetchGithubData(username);
-    }, [])
+    }, [data])
 
+    console.log(data.name);
     return(
+        // <div className="card-div" style={{ backgroundImage: `url(${coverPhoto})`}}>
         <div className="card-div">
+            <CoverBackground image={coverPhoto} />
+            <div className="bottom-div">
             <ProfilePicture login={data.login} profilePicture={data.avatar_url} />
-            <div className="right-half">
-                <Member login={data.login} created={data.created_at} />
-                <div className="profile-numbers">
-                    <Tile data={data.public_repos} label="Repositories" />
-                    <Tile data={data.public_repos} label="Repositories" />
-                    <Tile data={data.public_repos} label="Repositories" />
+                <div className="right-half">
+                    <Member login={data.name} created={data.created_at} />
+                    <div className="profile-numbers">
+                        <Tile data={data.public_repos} label="Repositories" />
+                        <Tile data={data.public_repos} label="Repositories" />
+                        <Tile data={data.public_repos} label="Repositories" />
+                    </div>
                 </div>
             </div>
             
@@ -67,6 +73,14 @@ function Tile({data, label}) {
         <div className="tile">
             <p className="repo">{data}</p>
             <p className="label">{label}</p>
+        </div>
+    )
+}
+
+function CoverBackground({image}) {
+    return(
+        <div className="cover-photo-div">
+            <img className="cover-picture" src={image} alt="Cover Picture" />
         </div>
     )
 }

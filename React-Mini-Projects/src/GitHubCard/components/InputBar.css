@@ -1,0 +1,73 @@
+.input-box {
+    font-size: 14px;
+    border-width: 1px;
+    border-radius: 5px;
+    margin-right: 20px;
+    width: 400px;
+    height: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+}
+
+.input-box:focus {
+    outline: none;
+}
+
+.generate-button {
+    margin: 10px;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    height: 32px;
+    border: 1px solid transparent;
+    min-width: 60px;
+    min-height: 32px;
+    transition: border-color 0.1s ease;
+}
+
+.generate-button:hover {
+    border-color: black;
+}
+
+.inputDiv{
+    margin-bottom: 90px;
+    display: flex;
+    flex-direction: row;
+    top: 100px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 800px;
+    height: 30px;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+}
+
+.input-box-div {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    padding: 5px 2px 5px 15px;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.input-box-div:has(input:focus) {
+    border: 1px solid red;
+}
