@@ -20,6 +20,11 @@ export function InputBar(props) {
                 <input className="input-box" type="text" placeholder="GitHub Username" onChange={handleInputChange} value={username}></input>
             </div>
             <button className="generate-button" onClick={handleClick}>Generate</button>
+            {/* <div className="error-msg">
+                {username.length == 0 ? <p>
+                    Username is empty
+                </p> : null}
+            </div> */}
         </div>
     )
 }
