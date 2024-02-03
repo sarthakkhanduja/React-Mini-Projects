@@ -33,6 +33,7 @@
     min-width: 60px;
     min-height: 32px;
     transition: border-color 0.1s ease;
+    font-family: monospace;
 }
 
 .generate-button:hover {

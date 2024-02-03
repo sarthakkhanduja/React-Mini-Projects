@@ -2,43 +2,26 @@ import { useState, useEffect } from "react";
 import "./Card.css"
 import coverPhoto from "../assets/github-cover.png"
 
-export function Card() {
-
-    const [data, setData] = useState({})
-    const fetchGithubData = (username) => {
-        console.log(username);
-        const URL = `https://api.github.com/users/${username}`;
-        console.log(URL);
-        fetch(URL)
-        .then(async (res) => {
-          const json = await res.json();
-          setData(json);
-        })
-        .catch((error) => {
-          console.log("Error fetching Data!!")
-          console.log(error);
-        })
-    }
-    
+export function Card(props) {    
     useEffect(() => {
         // const username = "sarthakkhanduja"
-        const username = "torvalds"
-        fetchGithubData(username);
-    }, [data])
+        // const username = "torvalds"
+        props.fetchGithubData(props.data.login);
+    }, [])
 
-    console.log(data.name);
+    // console.log(props.data.name);
     return(
         // <div className="card-div" style={{ backgroundImage: `url(${coverPhoto})`}}>
         <div className="card-div">
             <CoverBackground image={coverPhoto} />
             <div className="bottom-div">
-            <ProfilePicture login={data.login} profilePicture={data.avatar_url} />
+            <ProfilePicture login={props.data.login} profilePicture={props.data.avatar_url} />
                 <div className="right-half">
-                    <Member login={data.name} created={data.created_at} />
+                    <Member login={props.data.name} created={props.data.created_at} />
                     <div className="profile-numbers">
-                        <Tile data={data.public_repos} label="Repositories" />
-                        <Tile data={data.public_repos} label="Repositories" />
-                        <Tile data={data.public_repos} label="Repositories" />
+                        <Tile data={props.data.public_repos} label="Repositories" />
+                        <Tile data={props.data.public_repos} label="Repositories" />
+                        <Tile data={props.data.public_repos} label="Repositories" />
                     </div>
                 </div>
             </div>
